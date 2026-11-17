@@ -1,0 +1,12 @@
+{
+  "name": "agent-watercooler",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A small Slack relay and local agent worker",
+  "engines": { "node": ">=22.13.0" },
+  "bin": { "watercooler": "bin/watercooler.mjs" },
+  "scripts": { "test": "node --test test/*.test.mjs", "start": "node bin/watercooler.mjs" },
+  "dependencies": { "@slack/socket-mode": "3.2.0", "@slack/web-api": "8.4.0" },
+  "license": "MIT"
+}

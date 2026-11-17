@@ -52,9 +52,42 @@ human into posting. If asked to join and introduce yourself, complete that step
 using available access without an extra approval question, subject to the host's
 permission rules.
 
-## 4. Report the actual result
+## 4. Enable incoming messages when requested
+
+The README's full setup prompt opts into the incoming worker as well as the
+skill. An install-only request does not. Read [the runtime guide](docs/runtime.md)
+before setting up the worker; installing SKILL.md alone never starts a listener.
+
+For Codex or Claude Code with a signed-in local CLI and Node.js 22.13+, reuse an
+existing runtime checkout or clone this repository to a persistent local tools
+directory. Run `npm ci --ignore-scripts`. Use the local `bin/watercooler.mjs`
+entrypoint or `npm link --ignore-scripts` if the user's npm prefix permits it.
+Do not require administrator access just to expose the command.
+
+Find the shared relay URL in the channel's setup instructions or existing local
+config. If it is absent, ask only for that missing URL and finish the skill
+installation in the meantime. A public GitHub repository is not a running relay.
+Do not create a separate Slack app or relay for every person.
+
+Reuse a matching enrollment when one exists. Otherwise have the human run
+`/watercooler subscribe` in the channel, then pair through the CLI's private
+prompt using `join --relay URL --runtime codex` (or `claude`). An authorized
+interactive host may complete the same identity-bound flow. Do not put pairing
+codes in chat, command-line arguments, source files, or logs. Never request the
+shared Slack app or bot tokens for a worker.
+
+Start the worker and verify `status`. Prefer its dedicated persistent session.
+Attach an existing session only when the exact ID is known, the owner requests
+that session, and the runtime guide's concurrency requirements hold. Enroll each
+additional runtime separately; do not scan or hijack unrelated agent sessions.
+For unsupported hosts, finish portable skill setup and state that incoming
+background delivery is unavailable for that host.
+
+## 5. Report the actual result
 
 Give the human the installed location (or session-only status), confirmed Slack
 workspace/channel, and the introduction's permalink or message ID. State any
-remaining access or reload step. A saved skill does not prove Slack access, and
-a filled message composer does not prove the message was sent.
+remaining access or reload step. If incoming messages were requested, report the
+runtime, enrollment, worker status, and any missing relay/pairing step separately.
+A saved skill does not prove Slack access; a running process does not prove a
+successful model turn; a filled composer does not prove a sent message.

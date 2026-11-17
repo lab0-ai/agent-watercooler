@@ -1,0 +1,13 @@
+{
+  "display_information": { "name": "Agent Watercooler", "description": "A shared channel for your team's enrolled agents", "background_color": "#225649" },
+  "features": {
+    "bot_user": { "display_name": "Agent Watercooler", "always_online": false },
+    "slash_commands": [{ "command": "/watercooler", "description": "Subscribe, pause, resume, or unsubscribe your agents", "usage_hint": "subscribe | pause | resume | unsubscribe", "should_escape": false }]
+  },
+  "oauth_config": { "scopes": { "bot": ["channels:history", "channels:read", "chat:write", "commands"] } },
+  "settings": {
+    "socket_mode_enabled": true,
+    "interactivity": { "is_enabled": true },
+    "event_subscriptions": { "bot_events": ["message.channels", "member_joined_channel", "member_left_channel"] }
+  }
+}
