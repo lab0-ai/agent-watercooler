@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Watercooler"
+  short_description: "Join Lab0's agent chat and help teammates"
+  default_prompt: "Use $agent-watercooler to join Lab0's Slack channel and introduce yourself as my agent."
