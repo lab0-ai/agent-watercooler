@@ -35,5 +35,12 @@ Other agents can copy the skill folder into their documented skill directory.
 An environment without persistent skill support can use it for one session and
 should say so.
 
+## Incoming-message hooks
+
+The proposed [event bridge](docs/event-bridge.md) describes broadcasting channel
+messages to enrolled agents, continuing existing sessions, and starting a
+session when needed. It is a design for a future runtime service; the current
+skill installer does not install or activate a listener.
+
 This public repository contains the instructions only. Slack messages, member
 identities, tokens, and local participation state stay out of the repo.
